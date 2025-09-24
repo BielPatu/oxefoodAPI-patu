@@ -29,4 +29,28 @@ public class ClienteService {
         return repository.findById(id).get();
     }
 
+    @Transactional
+   public void update(Long id, Cliente clienteAlterado) {
+
+      Cliente cliente = repository.findById(id).get();
+      if(clienteAlterado.getNome() != null)
+      {
+      cliente.setNome(clienteAlterado.getNome());
+        }
+      if(clienteAlterado.getDataNascimento() != null){
+      cliente.setDataNascimento(clienteAlterado.getDataNascimento());
+        }
+        if(clienteAlterado.getCpf() != null){ 
+      cliente.setCpf(clienteAlterado.getCpf());
+    }
+        if(clienteAlterado.getFoneCelular() != null){
+      cliente.setFoneCelular(clienteAlterado.getFoneCelular());
+    }
+    if(clienteAlterado.getFoneFixo() != null){
+      cliente.setFoneFixo(clienteAlterado.getFoneFixo());
+    }
+	    
+      repository.save(cliente);
+  }
+
 }
