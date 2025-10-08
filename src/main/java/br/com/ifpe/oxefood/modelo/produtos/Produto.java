@@ -3,7 +3,6 @@ package br.com.ifpe.oxefood.modelo.produtos;
 
 import org.hibernate.annotations.SQLRestriction;
 
-import br.com.ifpe.oxefood.modelo.categoriaproduto.CategoriaProduto;
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,8 +25,6 @@ import lombok.Setter;
 
 public class Produto extends EntidadeAuditavel  {
 
-   @Column
-   private CategoriaProduto categoria;
 
 
    @Column

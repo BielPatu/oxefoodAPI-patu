@@ -1,11 +1,13 @@
-package br.com.ifpe.oxefood.modelo.categoriaproduto;
-
+package br.com.ifpe.oxefood.modelo.estado;
 
 import org.hibernate.annotations.SQLRestriction;
 
+import br.com.ifpe.oxefood.modelo.cidade.Cidade;
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,16 +16,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "CategoriaProduto")
+@Table(name = "Estado")
 @SQLRestriction("habilitado = true")
 @Builder
 @Getter
-@Setter 
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
 
-public class CategoriaProduto extends EntidadeAuditavel {
+
+public class Estado extends EntidadeAuditavel {
+
     @Column
-    private String descricao;
+    private String nome;
+
+    @Column String sigla;
+
+    @PrimaryKeyJoinColumn
+    @ManyToOne
+    private Cidade cidade;
+
+
+    
 }

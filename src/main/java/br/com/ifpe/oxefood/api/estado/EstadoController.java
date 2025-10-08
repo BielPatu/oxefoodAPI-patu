@@ -1,5 +1,4 @@
-package br.com.ifpe.oxefood.api.client;
-
+package br.com.ifpe.oxefood.api.estado;
 
 import java.util.List;
 
@@ -17,49 +16,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ifpe.oxefood.modelo.cliente.Cliente;
-import br.com.ifpe.oxefood.modelo.cliente.ClienteService;
 import br.com.ifpe.oxefood.modelo.estado.Estado;
-
+import br.com.ifpe.oxefood.modelo.estado.EstadoService;
 
 @RestController
-@RequestMapping("/api/cliente")
+@RequestMapping("/api/estado")
 @CrossOrigin
 
-
-public class ClienteController {
-
-   @Autowired
-   private ClienteService clienteService;
+public class EstadoController {
+    @Autowired
+   private EstadoService estadoService;
 
    @PostMapping
-   public ResponseEntity<Cliente> save(@RequestBody ClienteRequest request) {
+   public ResponseEntity<Estado> save(@RequestBody EstadoRequest request) {
 
-       Cliente cliente = clienteService.save(request.build());
-       return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
+       Estado estado = estadoService.save(request.build());
+       return new ResponseEntity<Estado>(estado, HttpStatus.CREATED);
        
    }
-   
    @GetMapping
-    public List<Cliente> listarTodos() {
-        return clienteService.listarTodos();
-    }
-    @GetMapping("/{id}")
-    public Cliente obterPorID(@PathVariable Long id) {
-        return clienteService.obterPorID(id);
+    public List<Estado> listarTodos() {
+        return estadoService.listarTodos();
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Estado> update(@PathVariable("id") Long id, @RequestBody ClienteRequest request) {
+    public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody EstadoRequest request) {
 
-       clienteService.update(id, request.build());
+       estadoService.update(id, request.build());
        return ResponseEntity.ok().build();
- }
+    }
+   
     @DeleteMapping("/{id}")
    public ResponseEntity<Void> delete(@PathVariable Long id) {
 
-       clienteService.delete(id);
+       estadoService.delete(id);
        return ResponseEntity.ok().build();
    }
-
-
-   
 }
