@@ -34,6 +34,7 @@ public class ProdutoService {
         public void update(Long id, Produto produtoAlterado) {
         Produto produto = repository.findById(id).get();
         produto.setCodigo(produtoAlterado.getCodigo());
+        produto.setCategoria(produtoAlterado.getCategoria());
         produto.setTitulo(produtoAlterado.getTitulo());
         produto.setDescricao(produtoAlterado.getDescricao());
         produto.setValorUnitario(produtoAlterado.getValorUnitario());
