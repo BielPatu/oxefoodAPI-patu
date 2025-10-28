@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ifpe.oxefood.modelo.categoriaProduto.CategoriaProdutoService;
-import br.com.ifpe.oxefood.modelo.cliente.Cliente;
 import br.com.ifpe.oxefood.modelo.produtos.Produto;
 import br.com.ifpe.oxefood.modelo.produtos.ProdutoService;
 import jakarta.validation.Valid;

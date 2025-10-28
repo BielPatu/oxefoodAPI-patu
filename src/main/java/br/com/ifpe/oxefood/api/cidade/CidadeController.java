@@ -54,5 +54,15 @@ public class CidadeController {
        cidadeService.delete(id);
        return ResponseEntity.ok().build();
    }
+
+   @GetMapping("/{id}")
+    public ResponseEntity<Cidade> getById(@PathVariable Long id) {
+    Cidade cidade = cidadeService.obterPorID(id); 
+    if (cidade != null) {
+        return ResponseEntity.ok(cidade);
+    } else {
+        return ResponseEntity.notFound().build();
+    }
+}
  
 }
